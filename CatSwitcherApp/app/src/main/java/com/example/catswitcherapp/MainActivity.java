@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     boolean iscat1 = true;
 
@@ -29,10 +31,17 @@ public class MainActivity extends AppCompatActivity {
     }
     public void hotFace(View view)
     {
+        Integer numImg = generateRandomIntIntRange(0,5);
 
         ImageView image = findViewById(R.id.catImageView);
-        image.setImageResource(R.drawable.doraemon);
+        int[] images = new int[]{R.drawable.doraemon, R.drawable.doraemon1, R.drawable.doraemon2, R.drawable.doraemon3, R.drawable.doraemon4, R.drawable.doraemon5 };
+        image.setImageResource(images[numImg]);
 
+    }
+    public static int generateRandomIntIntRange(int min, int max)
+    {
+        Random r = new Random();
+        return  r.nextInt((max - min) + 1) + min;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
